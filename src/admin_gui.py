@@ -63,9 +63,9 @@ entry_password = tk.Entry(frame, show="*")
 entry_password.grid(row=1, column=1, pady=10)
 
 button_login = tk.Button(frame, text="Login", command=login_admin)
-button_login.grid(row=2, column=0, pady=10)
+button_login.grid(row=2, column=1, pady=10)
 
-button_register = tk.Button(frame, text="Register", command=register_admin)
-button_register.grid(row=2, column=1, pady=10)
+# button_register = tk.Button(frame, text="Register", command=register_admin)
+# button_register.grid(row=2, column=1, pady=10)
 
 app.mainloop()
