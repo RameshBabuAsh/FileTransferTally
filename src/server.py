@@ -2,6 +2,13 @@ import socket
 import threading
 import os
 
+# --> Automatic port allocation
+
+# server_socket.bind(("localhost", 0))
+
+# # Get the port number that was chosen
+# server_port = server_socket.getsockname()[1]
+
 SERVER_PORT = 12345
 BUFFER_SIZE = 1024
 
