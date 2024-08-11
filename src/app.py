@@ -1,6 +1,5 @@
 import threading
 from server import start_server
-from GUI import root
 
 def run_server():
     print("Starting server...")
