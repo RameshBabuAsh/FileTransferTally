@@ -28,7 +28,7 @@ To get started with the Advanced File Distribution System, follow these steps:
 
 1.  Clone the Repository   
    ```bash
-   git clone https://github.com/yourusername/repo-name.git
+   git clone https://github.com/RameshBabuAsh/FileTransferTally.git
    ```
 
 2.  Create a Virtual Environment   
@@ -49,17 +49,17 @@ To get started with the Advanced File Distribution System, follow these steps:
    Navigate to the `src` directory and start the application:
    -  Start the Backend (Terminal 1): 
 
-     ```bash
-     cd src
-     python app.py
-     ```
+    ```bash
+    cd src
+    python app.py
+    ```
 
    -  Note : Close the GUI that opens here.
    -  Start the GUI (Terminal 2): 
 
-     ```bash
-     python gui.py
-     ```
+    ```bash
+    python gui.py
+    ```
 
 ##  Contributing 
 Contributions are welcome! If you have suggestions or improvements, feel free to fork the repository and submit a pull request.
