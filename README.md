@@ -36,7 +36,7 @@ To get started with the Advanced File Distribution System, follow these steps:
    ```bash
    cd repo-name
    python3 -m venv venv
-   source venv/bin/activate
+   venv\Scripts\activate
    ```
 
 3.  Install Dependencies   
