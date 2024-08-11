@@ -3,6 +3,13 @@ import os
 import time  
 from tkinter import simpledialog
 
+# --> Automatic port allocation (for server and client then port number can be obtained as follows)
+
+# server_socket.bind(("localhost", 0))
+
+# # Get the port number that was chosen
+# server_port = server_socket.getsockname()[1]
+
 SERVER_PORT = 12345
 BUFFER_SIZE = 1024
 
