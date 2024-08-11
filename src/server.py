@@ -34,7 +34,7 @@ def handle_client(client_socket):
                 print("No filename received. Closing connection.")
                 break
 
-            print(f"Filename received: {filename}")
+            # print(f"Filename received: {filename}")
 
             # Path to save the file
             file_path = os.path.join(user_directory, filename)
@@ -45,7 +45,7 @@ def handle_client(client_socket):
                         break
                     file.write(file_data)
 
-            print(f"File {filename} saved to {user_directory}.")
+            print(f"File {filename} saved to {user_directory}. Admin sent successfully!")
         
     except Exception as e:
         print(f"Error: {e}")

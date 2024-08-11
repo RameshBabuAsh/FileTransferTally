@@ -3,7 +3,7 @@ from tkinter import simpledialog, messagebox, filedialog
 import hashlib
 import sqlite3
 import os
-from client import connect_to_server, send_file, join_group
+from client import connect_to_server
 from server import BUFFER_SIZE
 
 
@@ -151,6 +151,24 @@ def manage_groups():
     tk.Button(group_management_window, text="Add Client to Group", command=add_client_to_group).grid(row=2, column=0, padx=10, pady=10)
     tk.Button(group_management_window, text="Remove Client from Group", command=remove_client_from_group).grid(row=3, column=0, padx=10, pady=10)
 
+
+def send_file(client_socket, file_path, username):
+    try:
+        client_socket.send(username.encode('utf-8'))
+
+        filename = os.path.basename(file_path)
+        client_socket.send(filename.encode('utf-8'))
+
+        # Send the file content
+        with open(file_path, 'rb') as file:
+            while (data := file.read(BUFFER_SIZE)):
+                client_socket.send(data)
+        
+        print("File sent successfully.")
+    except Exception as e:
+        print(f"Failed to send file: {e}")
+
+
 def send_files_to_group():
     group_name = simpledialog.askstring("Input", "Enter group name to send files to:")
     if not group_name:
@@ -195,6 +213,34 @@ def send_files_to_group():
         messagebox.showerror("Error", "Invalid group name.")
     
     conn.commit()
+    conn.close()
+
+def join_group(client_socket):
+    conn = sqlite3.connect('file_sharing.db')
+    c = conn.cursor()
+
+    c.execute('SELECT group_name FROM groups')
+    groups = c.fetchall()
+
+    group_list = [group[0] for group in groups]
+    
+    group_name = simpledialog.askstring("Input", f"Available groups: {', '.join(group_list)}\nEnter group name to join:")
+    
+    if group_name:
+        global userName
+        username = userName
+        c.execute('SELECT id FROM users WHERE username = ?', (username,))
+        user_id = c.fetchone()
+        c.execute('SELECT id FROM groups WHERE group_name = ?', (group_name,))
+        group_id = c.fetchone()
+        
+        if user_id and group_id:
+            c.execute('INSERT INTO group_members (group_id, user_id) VALUES (?, ?)', (group_id[0], user_id[0]))
+            conn.commit()
+            messagebox.showinfo("Success", f"You have joined the group '{group_name}'.")
+        else:
+            messagebox.showerror("Error", "Invalid group name.")
+    
     conn.close()
 
 def view_logs():
