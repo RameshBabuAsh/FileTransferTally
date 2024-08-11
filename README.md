@@ -34,7 +34,7 @@ To get started with the Advanced File Distribution System, follow these steps:
 2.  Create a Virtual Environment   
    Navigate to the cloned repository and create a virtual environment:
    ```bash
-   cd repo-name
+   cd src
    python3 -m venv venv
    venv\Scripts\activate
    ```
