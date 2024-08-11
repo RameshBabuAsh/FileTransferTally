@@ -49,15 +49,15 @@ To get started with the Advanced File Distribution System, follow these steps:
    Navigate to the `src` directory and start the application:
    -  Start the Backend (Terminal 1): 
 
-     ```
+     ```bash
      cd src
      python app.py
      ```
 
-      Note : Close the GUI that opens here.
+   -  Note : Close the GUI that opens here.
    -  Start the GUI (Terminal 2): 
 
-     ```
+     ```bash
      python gui.py
      ```
 
