@@ -61,6 +61,10 @@ To get started with the Advanced File Distribution System, follow these steps:
     python gui.py
     ```
 
+5.  Admin credentials:
+    -Username: root
+    -Password: root
+
 ##  Contributing 
 Contributions are welcome! If you have suggestions or improvements, feel free to fork the repository and submit a pull request.
 
